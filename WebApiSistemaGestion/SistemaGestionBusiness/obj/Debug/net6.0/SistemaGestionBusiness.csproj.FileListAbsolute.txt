@@ -15,3 +15,7 @@ C:\Users\Rentadvisor\source\repos\WebApiSistemaGestion\SistemaGestionBusiness\ob
 C:\Users\Rentadvisor\source\repos\WebApiSistemaGestion\SistemaGestionBusiness\obj\Debug\net6.0\refint\SistemaGestionBusiness.dll
 C:\Users\Rentadvisor\source\repos\WebApiSistemaGestion\SistemaGestionBusiness\obj\Debug\net6.0\SistemaGestionBusiness.pdb
 C:\Users\Rentadvisor\source\repos\WebApiSistemaGestion\SistemaGestionBusiness\obj\Debug\net6.0\ref\SistemaGestionBusiness.dll
+C:\Users\Rentadvisor\source\repos\WebApiSistemaGestion\SistemaGestionBusiness\bin\Debug\net6.0\SistemaGestionDTO.dll
+C:\Users\Rentadvisor\source\repos\WebApiSistemaGestion\SistemaGestionBusiness\bin\Debug\net6.0\SistemaGestionMapper.dll
+C:\Users\Rentadvisor\source\repos\WebApiSistemaGestion\SistemaGestionBusiness\bin\Debug\net6.0\SistemaGestionDTO.pdb
+C:\Users\Rentadvisor\source\repos\WebApiSistemaGestion\SistemaGestionBusiness\bin\Debug\net6.0\SistemaGestionMapper.pdb

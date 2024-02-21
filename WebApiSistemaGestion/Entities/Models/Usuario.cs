@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Entities.models
+namespace SistemaGestionEntities.models
 {
     public partial class Usuario
     {
@@ -11,14 +11,6 @@ namespace Entities.models
             Venta = new HashSet<Venta>();
         }
 
-        public Usuario(string nombre, string apellido, string nombreUsuario, string contraseña, string mail)
-        {
-            this.Nombre = nombre;
-            this.Apellido = apellido;
-            this.NombreUsuario = nombreUsuario;
-            this.Contraseña = contraseña;
-            this.Mail = mail;
-        }
 
         public int Id { get; set; }
         public string Nombre { get; set; } = null!;

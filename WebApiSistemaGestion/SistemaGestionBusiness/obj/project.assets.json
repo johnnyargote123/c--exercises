@@ -753,6 +753,16 @@
           "bin/placeholder/SistemaGestionData.dll": {}
         }
       },
+      "SistemaGestionDTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/SistemaGestionDTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaGestionDTO.dll": {}
+        }
+      },
       "SistemaGestionEntities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -765,6 +775,20 @@
         },
         "runtime": {
           "bin/placeholder/SistemaGestionEntities.dll": {}
+        }
+      },
+      "SistemaGestionMapper/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SistemaGestionDTO": "1.0.0",
+          "SistemaGestionData": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SistemaGestionMapper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SistemaGestionMapper.dll": {}
         }
       }
     }
@@ -1937,15 +1961,27 @@
       "path": "../SistemaGestionData/SistemaGestionData.csproj",
       "msbuildProject": "../SistemaGestionData/SistemaGestionData.csproj"
     },
+    "SistemaGestionDTO/1.0.0": {
+      "type": "project",
+      "path": "../SistemaGestionDTO/SistemaGestionDTO.csproj",
+      "msbuildProject": "../SistemaGestionDTO/SistemaGestionDTO.csproj"
+    },
     "SistemaGestionEntities/1.0.0": {
       "type": "project",
       "path": "../Entities/SistemaGestionEntities.csproj",
       "msbuildProject": "../Entities/SistemaGestionEntities.csproj"
+    },
+    "SistemaGestionMapper/1.0.0": {
+      "type": "project",
+      "path": "../SistemaGestionMapper/SistemaGestionMapper.csproj",
+      "msbuildProject": "../SistemaGestionMapper/SistemaGestionMapper.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "SistemaGestionData >= 1.0.0"
+      "SistemaGestionDTO >= 1.0.0",
+      "SistemaGestionData >= 1.0.0",
+      "SistemaGestionMapper >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1977,6 +2013,12 @@
           "projectReferences": {
             "C:\\Users\\Rentadvisor\\source\\repos\\WebApiSistemaGestion\\SistemaGestionData\\SistemaGestionData.csproj": {
               "projectPath": "C:\\Users\\Rentadvisor\\source\\repos\\WebApiSistemaGestion\\SistemaGestionData\\SistemaGestionData.csproj"
+            },
+            "C:\\Users\\Rentadvisor\\source\\repos\\WebApiSistemaGestion\\SistemaGestionDTO\\SistemaGestionDTO.csproj": {
+              "projectPath": "C:\\Users\\Rentadvisor\\source\\repos\\WebApiSistemaGestion\\SistemaGestionDTO\\SistemaGestionDTO.csproj"
+            },
+            "C:\\Users\\Rentadvisor\\source\\repos\\WebApiSistemaGestion\\SistemaGestionMapper\\SistemaGestionMapper.csproj": {
+              "projectPath": "C:\\Users\\Rentadvisor\\source\\repos\\WebApiSistemaGestion\\SistemaGestionMapper\\SistemaGestionMapper.csproj"
             }
           }
         }

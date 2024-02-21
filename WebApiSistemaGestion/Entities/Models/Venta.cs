@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Entities.models
+namespace SistemaGestionEntities.models
 {
     public partial class Venta
     {

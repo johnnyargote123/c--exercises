@@ -1,4 +1,4 @@
-﻿using Entities.models;
+﻿using SistemaGestionEntities.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,8 @@ namespace SistemaGestionData.Interfaces
     public interface IUserRepository
     {
         Usuario GetById(int id);
-        IEnumerable<Usuario> GetAll();
+        Usuario GetByUserName(string userName);
+        List<Usuario> GetAll();
         bool Add(Usuario usuario);
         int Delete(int id);
         bool Update(int id, Usuario user);

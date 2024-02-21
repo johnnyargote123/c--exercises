@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SistemaGestionData\SistemaGestionData.csproj" />
+    <ProjectReference Include="..\SistemaGestionDTO\SistemaGestionDTO.csproj" />
+    <ProjectReference Include="..\SistemaGestionMapper\SistemaGestionMapper.csproj" />
   </ItemGroup>
 
 </Project>

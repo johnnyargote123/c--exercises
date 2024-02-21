@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v6.0": {
       "SistemaGestionBusiness/1.0.0": {
         "dependencies": {
-          "SistemaGestionData": "1.0.0"
+          "SistemaGestionDTO": "1.0.0",
+          "SistemaGestionData": "1.0.0",
+          "SistemaGestionMapper": "1.0.0"
         },
         "runtime": {
           "SistemaGestionBusiness.dll": {}
@@ -472,6 +474,11 @@
           "SistemaGestionData.dll": {}
         }
       },
+      "SistemaGestionDTO/1.0.0": {
+        "runtime": {
+          "SistemaGestionDTO.dll": {}
+        }
+      },
       "SistemaGestionEntities/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.27",
@@ -479,6 +486,15 @@
         },
         "runtime": {
           "SistemaGestionEntities.dll": {}
+        }
+      },
+      "SistemaGestionMapper/1.0.0": {
+        "dependencies": {
+          "SistemaGestionDTO": "1.0.0",
+          "SistemaGestionData": "1.0.0"
+        },
+        "runtime": {
+          "SistemaGestionMapper.dll": {}
         }
       }
     }
@@ -774,7 +790,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "SistemaGestionDTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "SistemaGestionEntities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SistemaGestionMapper/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,11 +1,13 @@
 ﻿using SistemaGestionData.Interfaces;
-using Entities.models;
+using SistemaGestionEntities.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SistemaGestionData.Repositories;
+using SistemaGestionDTO;
+using SistemaGestionMapper;
 
 namespace SistemaGestionBusiness.Services
 {
@@ -13,10 +15,12 @@ namespace SistemaGestionBusiness.Services
     {
 
         private readonly IUserRepository _userRepository;
+        private readonly UserMapper _userMapper;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, UserMapper userMapper)
         {
             _userRepository = userRepository;
+            _userMapper = userMapper;
         }
 
 
@@ -25,19 +29,46 @@ namespace SistemaGestionBusiness.Services
             return _userRepository.GetById(id); 
         }
 
-        public IEnumerable<Usuario> GetAllUsers()
+        public Usuario? GetUserByUserName(string userName) 
         {
-            return _userRepository.GetAll();
+            return _userRepository.GetByUserName(userName);
         }
 
-        public bool AddUser(Usuario user)
+
+        public bool GetUserByUsernameAndPassword(string username, string password)
         {
             try
             {
 
-                if (_userRepository.Add(user))
+                    Usuario? usuario = _userRepository.GetAll().Where(u => u.NombreUsuario == username && u.Contraseña == password).FirstOrDefault();
+                    if (usuario != null)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while logging session:", ex);
+            }
+        }
+
+        public List<Usuario> GetAllUsers()
+        {
+            return _userRepository.GetAll();
+        }
+
+        public bool AddUser(UsuarioDTO userDTO)
+        {
+            try
+            {
+               Usuario usuario =  _userMapper.UserToMapper(userDTO);
+
+                if (_userRepository.Add(usuario))
                 {
-                    Console.WriteLine($"Adding User: {user.FullDataUser()}");
                     return true;
                 }
                 return false;
@@ -63,15 +94,15 @@ namespace SistemaGestionBusiness.Services
             }
         }
 
-        public bool UpdateUser(int id, Usuario user)
+        public bool UpdateUser(int id, UsuarioDTO userDTO)
         {
             try
             {
                 if (id != -1)
                 {
-                    if (_userRepository.Update(id, user))
+                    Usuario usuario = _userMapper.UserToMapper(userDTO);
+                    if (_userRepository.Update(id, usuario))
                     {
-                        Console.WriteLine(user.FullDataUser());
                         return true;
                     }
                 }
@@ -82,6 +113,8 @@ namespace SistemaGestionBusiness.Services
                 throw new Exception("An error occurred while updating the user:", ex);
             }
         }
+
+       
 
     }
 }

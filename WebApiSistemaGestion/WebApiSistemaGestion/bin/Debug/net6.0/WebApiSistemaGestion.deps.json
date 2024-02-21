@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "WebApiSistemaGestion/1.0.0": {
         "dependencies": {
-          "Entities": "1.0.0",
+          "SistemaGestionBusiness": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
@@ -466,13 +466,47 @@
           }
         }
       },
-      "Entities/1.0.0": {
+      "SistemaGestionBusiness/1.0.0": {
+        "dependencies": {
+          "SistemaGestionDTO": "1.0.0",
+          "SistemaGestionData": "1.0.0",
+          "SistemaGestionMapper": "1.0.0"
+        },
+        "runtime": {
+          "SistemaGestionBusiness.dll": {}
+        }
+      },
+      "SistemaGestionData/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.27",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.27",
+          "SistemaGestionEntities": "1.0.0"
+        },
+        "runtime": {
+          "SistemaGestionData.dll": {}
+        }
+      },
+      "SistemaGestionDTO/1.0.0": {
+        "runtime": {
+          "SistemaGestionDTO.dll": {}
+        }
+      },
+      "SistemaGestionEntities/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.27",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.27"
         },
         "runtime": {
-          "Entities.dll": {}
+          "SistemaGestionEntities.dll": {}
+        }
+      },
+      "SistemaGestionMapper/1.0.0": {
+        "dependencies": {
+          "SistemaGestionDTO": "1.0.0",
+          "SistemaGestionData": "1.0.0"
+        },
+        "runtime": {
+          "SistemaGestionMapper.dll": {}
         }
       }
     }
@@ -805,7 +839,27 @@
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
-    "Entities/1.0.0": {
+    "SistemaGestionBusiness/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SistemaGestionData/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SistemaGestionDTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SistemaGestionEntities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SistemaGestionMapper/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

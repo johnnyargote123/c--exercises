@@ -1,4 +1,4 @@
-﻿using Entities.models;
+﻿using SistemaGestionEntities.models;
 using Microsoft.Extensions.DependencyInjection;
 using SistemaGestionBusiness.Services;
 using SistemaGestionData.Interfaces;

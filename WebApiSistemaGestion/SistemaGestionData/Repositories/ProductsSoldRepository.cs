@@ -1,4 +1,4 @@
-﻿using Entities.models;
+﻿using SistemaGestionEntities.models;
 using SistemaGestionData.Interfaces;
 using System;
 using System.Collections.Generic;

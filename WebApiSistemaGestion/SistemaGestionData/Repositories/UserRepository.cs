@@ -1,5 +1,4 @@
-﻿using Entities.dataBase;
-using Entities.models;
+﻿using SistemaGestionEntities.models;
 using SistemaGestionData.ContextFactory;
 using SistemaGestionData.Interfaces;
 using System;
@@ -42,13 +41,36 @@ namespace SistemaGestionData.Repositories
             }
 
         }
-        public IEnumerable<Usuario> GetAll()
+
+        public Usuario GetByUserName(string userName)
+        {
+            try
+            {
+                using (var _context = _contextFactory.CreateDbContext())
+                {
+                    Usuario? user = _context.Usuarios.Where(u => u.NombreUsuario == userName).FirstOrDefault();
+
+                    if (user == null)
+                    {
+                        throw new Exception("User not found with the specified userName.");
+                    }
+
+                    return user;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving user by userName.", ex);
+            }
+        }
+        public List<Usuario> GetAll()
         {
             try
             {
                 using(var _context = _contextFactory.CreateDbContext()) 
                 {
-                    IEnumerable<Usuario> userList = _context.Usuarios.ToList();
+                    List<Usuario> userList = _context.Usuarios.ToList();
 
                     if (userList.Count() == 0)
                     {
@@ -142,6 +164,7 @@ namespace SistemaGestionData.Repositories
                         existingUser.Contraseña = user.Contraseña;
                         existingUser.Mail = user.Mail;
 
+                        _context.Usuarios.Update(existingUser);
                         _context.SaveChanges();
                         return true;
                     }

@@ -1,5 +1,4 @@
-﻿using Entities.dataBase;
-using Entities.models;
+﻿using SistemaGestionEntities.models;
 using Microsoft.EntityFrameworkCore;
 using SistemaGestionData.ContextFactory;
 using SistemaGestionData.Interfaces;

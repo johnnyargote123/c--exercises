@@ -1,13 +1,10 @@
-﻿using Entities.dataBase;
+﻿using SistemaGestionData.dataBase;
 using Microsoft.Extensions.DependencyInjection;
 using SistemaGestionData.ContextFactory;
 using SistemaGestionData.Interfaces;
 using SistemaGestionData.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SistemaGestionMapper;
 
 namespace SistemaGestionBusiness.Services
 {
@@ -18,6 +15,7 @@ namespace SistemaGestionBusiness.Services
             // Registra aquí todos tus servicios
             services.AddScoped <CoderContext>();
             services.AddScoped<IDatabaseContextFactory, DatabaseContextFactory>();
+            services.AddScoped<UserMapper>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<UserService>();
             services.AddScoped<IProductoRepository, ProductRepository>();

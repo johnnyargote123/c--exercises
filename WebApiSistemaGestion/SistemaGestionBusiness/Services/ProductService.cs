@@ -1,5 +1,5 @@
-﻿using Entities.models;
-using SistemaGestionData.Interfaces;
+﻿using SistemaGestionData.Interfaces;
+using SistemaGestionEntities.models;
 using SistemaGestionData.Repositories;
 using System;
 using System.Collections.Generic;
