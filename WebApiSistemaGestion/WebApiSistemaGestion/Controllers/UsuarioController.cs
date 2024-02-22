@@ -35,7 +35,7 @@ namespace WebApiSistemaGestion.Controllers
             }
             else
             {
-                return base.Conflict(new { menssage = "Could not create user"});
+                return base.Conflict(new { message = "Could not create user"});
             }
 
         }
@@ -52,7 +52,7 @@ namespace WebApiSistemaGestion.Controllers
             }
             else
             {
-                return base.Conflict(new { menssage = "Could not updated data user" });
+                return base.Conflict(new { message = "Could not updated data user" });
             }
         }
 
@@ -72,18 +72,52 @@ namespace WebApiSistemaGestion.Controllers
         [HttpGet("{usuario}/{password}")]
         public IActionResult ObtenerUsuarioPassword(string usuario, string password)
         {
-            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(password) || usuario == ":usuario" || password == ":password")
+            try
             {
-                return base.BadRequest(new { message = "Username and password are required" });
-            }
+                if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(password) || usuario == ":usuario" || password == ":password")
+                {
+                    return base.BadRequest(new { message = "Username and password are required" });
+                }
 
-            if (this._UserService.GetUserByUsernameAndPassword(usuario, password))
-            {
-                return base.Ok(new { message = "Successful login", status = 200 });
+                if (this._UserService.GetUserByUsernameAndPassword(usuario, password))
+                {
+                    return base.Ok(new { message = "Successful login", status = 200 });
+                }
+                else
+                {
+                    return base.Conflict(new { menssage = "Could not login", status = 400 });
+                }
             }
-            else
+            catch (Exception ex) 
             {
-                return base.Conflict(new { menssage = "Could not login", status = 400 });
+                return base.StatusCode(500, new { message = "Internal server error", exception = ex.ToString()});
+            }
+        }
+
+
+        [HttpDelete("{idUsuario}")]
+
+        public IActionResult EliminarUsuario(int idUsuario)
+        {
+            try
+            {
+                if (idUsuario >= 0)
+                {
+                    if (this._UserService.DeleteUser(idUsuario) != null)
+                    {
+                        return base.Ok(new { message = $"The User with id:{idUsuario}, has been deleted", status = 200 });
+                    }
+                    
+                    return base.NotFound();
+                }
+                else
+                {
+                    return base.BadRequest(new { message = "User id not valid" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return base.StatusCode(500, new { message = "Internal server error", exception = ex.ToString() });
             }
         }
     }

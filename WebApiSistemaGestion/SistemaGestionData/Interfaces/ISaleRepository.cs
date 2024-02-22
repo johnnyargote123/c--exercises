@@ -10,7 +10,9 @@ namespace SistemaGestionData.Interfaces
     public interface ISaleRepository
     {
         Venta GetById(int id);
-        IEnumerable<Venta> GetAll();
+
+        List<Venta> GetByUserId(int userId);
+        List<Venta> GetAll();
         bool Add(Venta sale);
         int Delete(int id);
 

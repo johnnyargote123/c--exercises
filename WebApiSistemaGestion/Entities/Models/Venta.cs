@@ -9,11 +9,6 @@ namespace SistemaGestionEntities.models
         {
             ProductoVendidos = new HashSet<ProductoVendido>();
         }
-        public Venta( string? comentarios, int idUsuario)
-        {
-            Comentarios = comentarios;
-            IdUsuario = idUsuario;
-        }
 
         public int Id { get; set; }
         public string? Comentarios { get; set; }

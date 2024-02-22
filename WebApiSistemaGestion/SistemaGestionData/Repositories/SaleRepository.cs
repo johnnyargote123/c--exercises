@@ -36,18 +36,41 @@ namespace SistemaGestionData.Repositories
             }
             catch (Exception ex)
             {
-                throw new Exception("Error retrieving user by ID.", ex);
+                throw new Exception("Error retrieving sale by ID.", ex);
             }
 
         }
 
-        public IEnumerable<Venta> GetAll()
+        public List<Venta> GetByUserId(int userId)
         {
             try
             {
                 using (var _context = _contextFactory.CreateDbContext())
                 {
-                    IEnumerable<Venta> saleList = _context.Venta.ToList();
+                    List<Venta>? sale = _context.Venta.Where(u => u.IdUsuario == userId).ToList();
+
+                    if (userId == null)
+                    {
+                        throw new Exception("Sale not found with the specified ID.");
+                    }
+
+                    return sale;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving sale by User ID.", ex);
+            }
+
+        }
+
+        public List<Venta> GetAll()
+        {
+            try
+            {
+                using (var _context = _contextFactory.CreateDbContext())
+                {
+                    List<Venta> saleList = _context.Venta.ToList();
 
                     if (saleList.Count() == 0)
                     {

@@ -42,6 +42,29 @@ namespace SistemaGestionData.Repositories
 
         }
 
+        public List<ProductoVendido> GetByProductId(int productId)
+        {
+            try
+            {
+                using (var _context = _contextFactory.CreateDbContext())
+                {
+                    List<ProductoVendido> productsSoldList = _context.ProductoVendidos.Where(ps => ps.IdProducto == productId).ToList();
+
+                    if (productsSoldList == null)
+                    {
+                        throw new Exception("product Sold not found with the specified ID.");
+                    }
+
+                    return productsSoldList;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving product Sold by ID.", ex);
+            }
+
+        }
+
         public IEnumerable<ProductoVendido> GetAll()
         {
             try

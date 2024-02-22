@@ -13,9 +13,17 @@ namespace SistemaGestionBusiness.Services
         public static void RegisterServices(IServiceCollection services)
         {
             // Registra aquí todos tus servicios
+
+            //context
             services.AddScoped <CoderContext>();
+            //context factory
             services.AddScoped<IDatabaseContextFactory, DatabaseContextFactory>();
+            //mappers
             services.AddScoped<UserMapper>();
+            services.AddScoped<ProductMapper>();
+            services.AddScoped<SaleMapper>();
+            services.AddScoped<ProductSoldMapper>();
+            //repositories and services
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<UserService>();
             services.AddScoped<IProductoRepository, ProductRepository>();
@@ -24,6 +32,7 @@ namespace SistemaGestionBusiness.Services
             services.AddScoped<SaleService>();
             services.AddScoped<IProductsSoldRepository, ProductsSoldRepository>();
             services.AddScoped<ProductsSoldService>();
+
             // Agrega más servicios según sea necesario
         }
     }

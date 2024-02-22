@@ -14,12 +14,7 @@ namespace SistemaGestionEntities.models
         public virtual Producto IdProductoNavigation { get; set; } = null!;
         public virtual Venta IdVentaNavigation { get; set; } = null!;
 
-        public ProductoVendido( int stock, int idProducto, int idVenta)
-        {
-            Stock = stock;
-            IdProducto = idProducto;
-            IdVenta = idVenta;
-        }
+ 
 
         public string FullDataProductSold()
         {

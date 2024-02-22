@@ -82,16 +82,9 @@ namespace SistemaGestionBusiness.Services
 
         public int DeleteUser(int id)
         {
-            if (id != -1)
-            {
                 int resultDeleteUser = _userRepository.Delete(id);
-                Console.WriteLine(resultDeleteUser);
                 return resultDeleteUser;
-            }
-            else
-            {
-                throw new Exception("Could not delete user");
-            }
+  
         }
 
         public bool UpdateUser(int id, UsuarioDTO userDTO)

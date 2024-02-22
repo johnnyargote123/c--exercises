@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SistemaGestionData
-build_property.ProjectDir = C:\Users\Rentadvisor\Desktop\c#-coder\clone\WebApiSistemaGestion\SistemaGestionData\
+build_property.ProjectDir = C:\Users\Rentadvisor\source\repos\WebApiSistemaGestion\SistemaGestionData\

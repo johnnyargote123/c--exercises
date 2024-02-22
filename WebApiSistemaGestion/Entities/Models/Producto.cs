@@ -10,15 +10,6 @@ namespace SistemaGestionEntities.models
             ProductoVendidos = new HashSet<ProductoVendido>();
         }
 
-        public Producto(string descpription, decimal costo, decimal precioVenta, int stock, int idUsuario)
-        {
-            this.Descripciones = descpription;
-            this.Costo = costo;
-            this.PrecioVenta = precioVenta; 
-            this.Stock = stock;
-            this.IdUsuario = idUsuario;
-
-        }
 
 
         public int Id { get; set; }

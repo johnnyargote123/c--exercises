@@ -42,6 +42,29 @@ namespace SistemaGestionData.Repositories
 
         }
 
+        public List<Producto> GetByUserId(int userId)
+        {
+            try
+            {
+                using (var _context = _contextFactory.CreateDbContext())
+                {
+                    List<Producto> products = _context.Productos.Where(product => product.IdUsuario == userId).ToList();
+
+                    if (products == null)
+                    {
+                        throw new Exception("Product not found with the specified User ID.");
+                    }
+
+                    return products;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving product by User ID.", ex);
+            }
+
+        }
+
         public IEnumerable<Producto> GetAll()
         {
             try
@@ -94,7 +117,7 @@ namespace SistemaGestionData.Repositories
             }
         }
 
-        public int Delete(int id)
+        public bool Delete(int id)
         {
             try
             {
@@ -108,11 +131,11 @@ namespace SistemaGestionData.Repositories
                     {
                         _context.Productos.Remove(productToDelete);
                         _context.SaveChanges();
-                        return id;
+                        return true;
                     }
                     else
                     {
-                        throw new Exception("No product found with the provided ID.");
+                        return false;
                     }
                 }
             }
@@ -124,13 +147,43 @@ namespace SistemaGestionData.Repositories
 
         }
 
-        public bool Update(int id, Producto product)
+        public bool Update(int? id, Producto product)
         {
             try
             {
                 using (var _context = _contextFactory.CreateDbContext())
                 {
                     var existingProduct = _context.Productos.FirstOrDefault(p => p.Id == id);
+
+                    if (existingProduct != null)
+                    {
+                        existingProduct.Descripciones = product.Descripciones;
+                        existingProduct.Costo = product.Costo;
+                        existingProduct.PrecioVenta = product.PrecioVenta;
+                        existingProduct.Stock = product.Stock;
+                        existingProduct.IdUsuario = product.IdUsuario;
+
+                        _context.SaveChanges();
+                        return true;
+                    }
+
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("An error occurred while update the product:", ex);
+            }
+        }
+
+        public bool Update(Producto product)
+        {
+            try
+            {
+                using (var _context = _contextFactory.CreateDbContext())
+                {
+                    var existingProduct = _context.Productos.FirstOrDefault(p => p.Id == product.Id);
 
                     if (existingProduct != null)
                     {

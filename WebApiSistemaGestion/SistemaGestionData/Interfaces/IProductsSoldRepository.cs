@@ -10,6 +10,7 @@ namespace SistemaGestionData.Interfaces
     public interface IProductsSoldRepository
     {
         ProductoVendido GetById(int id);
+        List<ProductoVendido> GetByProductId(int productId);
         IEnumerable<ProductoVendido> GetAll();
         bool Add(ProductoVendido productSold);
         int Delete(int id);
